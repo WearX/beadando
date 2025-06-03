@@ -1,3 +1,7 @@
+import TableView from '../table/tableview.js';
+import FormView from '../table/formview.js';
+import ImportExportView from '../table/importexportview.js';
+
 class WorkplaceView {
     #container;
     #workplaceManager;
@@ -15,7 +19,7 @@ class WorkplaceView {
     }
 
     /**
-     * Callbackek beállítása
+     * Callbackek beállatása
      */
     #setupCallbacks() {
         // táblázat callback
@@ -35,16 +39,15 @@ class WorkplaceView {
     }
 
     /**
-     * Táblázat view renderelése
+     * Táblázat nézet renderelése
      * @param {TableManager} tableManager 
      */
     #renderTableView(tableManager) {
         this.#container.innerHTML = '';
         
-        // TODO: majd a TableView, FormView és ImportExportView
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = '<h2>Táblázat nézet</h2>';
-        this.#container.appendChild(tempDiv);
+        new TableView(this.#container, tableManager);
+        new FormView(this.#container, tableManager);
+        new ImportExportView(this.#container, tableManager);
     }
 
     /**
@@ -58,19 +61,18 @@ class WorkplaceView {
         selectContainer.className = 'select-container';
         this.#container.appendChild(selectContainer);
         
-        
-        // TODO: SelectView es MainView
+        // TODO: SelectView és MainView
         selectContainer.innerHTML = '<h2>Mappa nézet</h2>';
     }
 
     /**
-     * Kártya áték renderelése
+     * Kártya játék renderelése
      * @param {QuizManager} quizManager 
      */
     #renderCardGameView(quizManager) {
         this.#container.innerHTML = '';
         
-        // TODO: GameContainer
+        // TODO: GameContainerd
         const gameDiv = document.createElement('div');
         gameDiv.innerHTML = '<h2>Kártyajáték</h2>';
         this.#container.appendChild(gameDiv);
