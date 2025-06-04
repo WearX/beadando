@@ -30,7 +30,7 @@ class TableManager {
     }
 
     /**
-     * uj elem hozzádadása
+     * UJ elem hozzáadása
      * @param {string} nev 
      * @param {string} korszak 
      * @param {string} vers 
@@ -50,7 +50,7 @@ class TableManager {
     }
 
     /**
-     * adatok lekérése
+     * Adatok lekérése
      * @returns {Array}
      */
     getData() {
@@ -66,12 +66,12 @@ class TableManager {
     }
 
     /**
-     * Importálás
-     * @param {string} csvData 
-     * @returns {Promise}
+     * Adatok újratöltése (frissítés)
      */
-    importData(csvData) {
-        return this.#dataRepository.importFromCSV(csvData);
+    refresh() {
+        if (this.#newItemCallback) {
+            this.#newItemCallback();
+        }
     }
 }
 

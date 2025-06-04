@@ -1,6 +1,8 @@
 import TableView from '../table/tableview.js';
 import FormView from '../table/formview.js';
 import ImportExportView from '../table/importexportview.js';
+import SelectView from '../mappa/selectview.js';
+import MainView from '../mappa/mainview.js';
 
 class WorkplaceView {
     #container;
@@ -51,7 +53,7 @@ class WorkplaceView {
     }
 
     /**
-     * Mappa view renderelése
+     * Mappa nézet renderelése
      * @param {SelectManager} selectManager 
      */
     #renderMapView(selectManager) {
@@ -61,8 +63,8 @@ class WorkplaceView {
         selectContainer.className = 'select-container';
         this.#container.appendChild(selectContainer);
         
-        // TODO: SelectView és MainView
-        selectContainer.innerHTML = '<h2>Mappa nézet</h2>';
+        new SelectView(selectContainer, selectManager);
+        new MainView(selectContainer, selectManager);
     }
 
     /**
